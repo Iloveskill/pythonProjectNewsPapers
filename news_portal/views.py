@@ -53,7 +53,7 @@ class NewsCreate(PermissionRequiredMixin, CreateView):
         if post_limit >= 3:
             return render(self.request, 'post_limit.html', {'author': post.author})
         post.save()
-        return super().form_valid()
+        return super().form_valid(form)
 
 class NewsUpdate(PermissionRequiredMixin, UpdateView):
     model = Post
